@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+openai
+python-dotenv
+numpy
+pydantic
+redis
+SQLAlchemy
+psycopg[binary]
+pyjwt
+pwdlib[argon2]
+python-multipart
+pytest
+pytest-asyncio
+httpx
+pytest-cov
+pgvector

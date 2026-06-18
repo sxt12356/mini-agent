@@ -1,0 +1,57 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: mini-agent-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+  
+  postgres:
+    image: mini-agent-postgres-pgvector:local
+    container_name: mini-agent-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: mini_user
+      POSTGRES_PASSWORD: mini_password
+      POSTGRES_DB: mini_agent
+    volumes:
+
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped 
+  
+
+  mini-agent-api:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: mini-agent-python-base:latest
+        HTTP_PROXY: http://host.docker.internal:7897
+        HTTPS_PROXY: http://host.docker.internal:7897
+        NO_PROXY: 127.0.0.1,localhost
+    container_name: mini-agent-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      HTTP_PROXY: http://host.docker.internal:7897
+      HTTPS_PROXY: http://host.docker.internal:7897
+      NO_PROXY: 127.0.0.1,localhost
+      http_proxy: http://host.docker.internal:7897
+      https_proxy: http://host.docker.internal:7897
+      no_proxy: 127.0.0.1,localhost
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: postgresql+psycopg://mini_user:mini_password@postgres:5432/mini_agent
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+  postgres-data:

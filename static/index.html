@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>电商售后 AI Agent Demo</title>
+
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1>电商售后 AI Agent</h1>
+        <p>订单工具 + RAG 知识库 + Memory + Human-in-the-loop</p>
+      </div>
+
+      <div class="status-card">
+        <div class="status-row">
+          <span class="label">登录状态</span>
+          <span id="loginStatus" class="badge badge-gray">未登录</span>
+        </div>
+
+        <div class="status-row">
+          <span class="label">当前用户</span>
+          <span id="currentUser">-</span>
+        </div>
+
+        <div class="status-row">
+          <span class="label">Session</span>
+          <span id="sessionIdText">-</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>1. 登录</h2>
+
+        <div class="form-row">
+          <label for="username">用户名</label>
+          <input id="username" value="alice" autocomplete="username" />
+        </div>
+
+        <div class="form-row">
+          <label for="password">密码</label>
+          <input id="password" type="password" value="alice123" autocomplete="current-password" />
+        </div>
+
+        <button id="loginBtn">登录</button>
+
+        <div class="hint">
+          Demo 用户：
+          <code>alice / alice123</code>，
+          <code>bob / bob123</code>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>2. 演示脚本</h2>
+
+        <div class="demo-buttons">
+          <button class="secondary" data-demo="帮我查一下 A1002">查订单 A1002</button>
+          <button class="secondary" data-demo="那它应该退款还是取消？">问退款还是取消</button>
+          <button class="secondary" data-demo="我要取消它，原因是拍错了">发起取消</button>
+          <button class="secondary" data-demo="未发货订单可以退款吗？">RAG 政策问答</button>
+        </div>
+
+        <div class="hint">
+          推荐顺序：查订单 → 问退款还是取消 → 发起取消 → 确认执行。
+        </div>
+      </section>
+
+      <section class="chat-panel">
+        <div class="chat-header">
+          <h2>3. Agent 对话</h2>
+
+          <div class="chat-actions">
+            <button id="memoryBtn" class="secondary">查看 Memory</button>
+            <button id="clearBtn" class="danger">清空页面</button>
+          </div>
+        </div>
+
+        <div id="chatBox" class="chat-box"></div>
+
+        <div id="approvalBox" class="approval-box hidden">
+          <div>
+            <strong>检测到待确认操作</strong>
+            <p id="approvalText"></p>
+          </div>
+
+          <div class="approval-actions">
+            <button id="approveBtn">确认执行</button>
+            <button id="rejectBtn" class="danger">拒绝</button>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <input id="messageInput" placeholder="输入消息，例如：帮我查一下 A1002" />
+          <button id="sendBtn">发送</button>
+        </div>
+
+        <div class="meta">
+          <div>
+            <span class="label">Last Trace ID:</span>
+            <code id="traceIdText">-</code>
+          </div>
+
+          <div>
+            <span class="label">Rate Limit:</span>
+            <code id="rateLimitText">-</code>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel memory-panel">
+        <h2>4. Memory / Debug</h2>
+        <pre id="memoryOutput">点击「查看 Memory」后显示。</pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
