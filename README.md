@@ -2,6 +2,12 @@
 
 一个电商售后 AI Agent 后端系统，支持订单查询、取消订单、退款工单、政策知识库问答、多轮记忆、人工审批、权限控制、RAG 检索、Tracing、限流、自动化测试和 Docker 部署。
 
+## 单问题调试服务
+
+如果你有一个可复现的 Python／FastAPI 报错，可先查看固定 ¥99 的诊断范围：
+[根因判断＋复现证据＋下一步建议](https://morrow-support-demo-shan.jiaxiaoshan8.chatgpt.site/debug)。
+本档不包含代码修复，也不需要生产密钥或真实客户数据。
+
 ## Overview
 
 本项目不是普通 Chatbot，而是一个接近真实业务场景的 AI Agent 系统。
