@@ -2,11 +2,19 @@
 
 一个电商售后 AI Agent 后端系统，支持订单查询、取消订单、退款工单、政策知识库问答、多轮记忆、人工审批、权限控制、RAG 检索、Tracing、限流、自动化测试和 Docker 部署。
 
-## 单问题调试服务
+## 电商客服 AI 上线前自检工具包
 
-如果你有一个可复现的 Python／FastAPI 报错，可先查看固定 ¥99 的诊断范围：
-[根因判断＋复现证据＋下一步建议](https://morrow-support-demo-shan.jiaxiaoshan8.chatgpt.site/debug)。
-本档不包含代码修复，也不需要生产密钥或真实客户数据。
+如果你正在上线电商客服 Chatbot／AI Agent，可以使用这份英文数字工具包做发布前检查：30 个合成测试场景、12 类危险回答红线、人工接管矩阵和 100 分上线评分表。
+
+[查看并购买 US$19 工具包](https://contra.com/products/GUX6q1Ui-ecommerce-support-ai-pre-launch-self-check-kit)
+
+工具包使用虚构规则和合成数据，不需要生产权限、密钥或真实客户对话。
+
+## Python／FastAPI 单问题修复
+
+如果你有一个可复现的 Python／FastAPI 后端报错，可查看 US$30 起、2 天交付的单问题修复范围：
+[Fix One Python or FastAPI Backend Bug](https://contra.com/s/EFmMPZEB-fix-one-python-or-fast-api-backend-bug)。
+该服务当前通过 Contra 询价确认范围，不是直接结账商品。
 
 ## Overview
 
