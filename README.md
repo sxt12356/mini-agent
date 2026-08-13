@@ -12,9 +12,9 @@
 
 ## Python／FastAPI 单问题修复
 
-如果你有一个可复现的 Python／FastAPI 后端报错，可查看 US$30 起、2 天交付的单问题修复范围：
-[Fix One Python or FastAPI Backend Bug](https://contra.com/s/EFmMPZEB-fix-one-python-or-fast-api-backend-bug)。
-该服务当前通过 Contra 询价确认范围，不是直接结账商品。
+如果你有一个可复现的 Python／FastAPI 后端报错，可查看 US$30、1 天交付的单问题修复范围：
+[在 Fiverr 直接购买单问题修复](https://www.fiverr.com/xiaojiashan/diagnose-and-fix-your-python-or-fastapi-backend-bug)。
+交付包括根因说明、最小代码补丁、1 个回归测试和简短变更说明；不索取生产密钥或真实客户数据。
 
 ## Overview
 
